@@ -3,7 +3,6 @@ const productPrice = document.querySelector("#product-price");
 const productQty = document.querySelector("#product-quantity");
 const productDesc = document.querySelector("#product-description");
 
-let newProductName = "";
 
 async function postProduct(url = "http://localhost:8080/api/products",
     data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
@@ -14,6 +13,7 @@ async function postProduct(url = "http://localhost:8080/api/products",
         },
         body: JSON.stringify(data)
     });
+    newProductCollection.push(response.json());
     return response.json();
 };
 
