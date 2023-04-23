@@ -1,5 +1,9 @@
 const productButton = document.querySelector("#get-all-products");
 const productList = document.querySelector("#product-list");
+let newProductCollection = [];
+
+//potentially change to add data to the newProductCollection at the GET method and then listProduct will pull from the array
+
 
 function listProduct(products) {
     for (let prod of products) {
@@ -7,6 +11,7 @@ function listProduct(products) {
         productLineItem.innerText =
             `Name: ${prod.name},\nPrice: ${prod.price},\nQuantity: ${prod.quantity},\nDescription: ${prod.description}`;
         productList.appendChild(productLineItem);
+        newProductCollection.push(prod);
     }
 
 };
