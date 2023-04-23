@@ -21,20 +21,21 @@
     </nav>
 
     <div>
-        <label for="product-name">Name of Product</label>
-        <input type="text" name="product-name" id="product-name"><br>
+        <form onsubmit="reset()">
+            <label for="product-name">Name of Product</label>
+            <input type="text" name="product-name" id="product-name"><br>
 
-        <label for="product-price">Price of Product</label>
-        <input type="text" name="product-price" id="product-price"><br>
+            <label for="product-price">Price of Product</label>
+            <input type="text" name="product-price" id="product-price"><br>
 
-        <label for="product-quantity">Quantity of Product</label>
-        <input type="number" name="product-quantity" id="product-quantity"><br>
+            <label for="product-quantity">Quantity of Product</label>
+            <input type="number" name="product-quantity" id="product-quantity"><br>
 
-        <label for="product-description">Description of Product</label>
-        <input type="text" name="product-description" id="product-description"><br>
+            <label for="product-description">Description of Product</label>
+            <input type="text" name="product-description" id="product-description"><br>
 
-        <button type="button" id="post-product" onclick="postProduct()">Create Product</button>
-
+            <button type="submit" id="post-product" onclick="postProduct()">Create Product</button>
+        </form>
     </div>
 
 
