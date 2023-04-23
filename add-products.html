@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+</head>
+
+<body>
+    <div>
+        <h1>Welcome, Admin</h1>
+    </div>
+
+    <nav>
+        <a href="home.html">See Products</a>
+        <a href="add-products.html">Add New Product</a>
+        <a href="update-products.html">Update Existing Product</a>
+        <a href="delete-products.html">Delete Product</a>
+    </nav>
+
+    <div>
+        <label for="product-name">Name of Product</label>
+        <input type="text" name="product-name" id="product-name"><br>
+
+        <label for="product-price">Price of Product</label>
+        <input type="number" name="product-price" id="product-price"><br>
+
+        <label for="product-quantity">Quantity of Product</label>
+        <input type="number" name="product-quantity" id="product-quantity"><br>
+
+        <label for="product-description">Description of Product</label>
+        <input type="text" name="product-description" id="product-description"><br>
+
+        <button type="button" id="post-product" onclick="postProduct()">Create Product</button>
+
+    </div>
+
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

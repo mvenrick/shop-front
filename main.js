@@ -1,6 +1,13 @@
 const productButton = document.querySelector("#get-all-products");
 const productList = document.querySelector("#product-list");
 
+const productName = document.querySelector("#product-name");
+const productPrice = document.querySelector("#product-price");
+const productQty = document.querySelector("#product-quantity");
+const productDesc = document.querySelector("#product-description");
+
+let newProductName = "";
+
 function listProduct(products) {
     for (let prod of products) {
         let productLineItem = document.createElement("li");
@@ -8,34 +15,31 @@ function listProduct(products) {
         productList.appendChild(productLineItem);
     }
 
-}
+};
 
 async function getJson() {
     let response = await fetch("http://localhost:8080/api/products");
     let data = await response.json();
     listProduct(data);
-}
+};
 
-// Example POST method implementation:
-async function postData(url = "", data = {}) {
+async function postProduct(url = "http://localhost:8080/api/products",
+    data = { "name": newProductName, "price": 10.99, "quantity": 23, "description": "nice" }) {
     const response = await fetch(url, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        // mode: "cors", // no-cors, *cors, same-origin
-        // cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
-        // credentials: "omit", // include, *same-origin, omit
+        method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "Content-Type": "application/json"
         },
-        // redirect: "follow", // manual, *follow, error
-        // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        body: JSON.stringify(data)
     });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
+    return response.json();
+};
 
-postData("http://localhost:8080/api/products", { "name": "Light Roast", "price": 10.99, "quantity": 56, "description": "Nutty and mildly acidic" })
-    .then((data) => {
-        console.log(data); // JSON data parsed by `data.json()` call
-    });
+const getName = productName.addEventListener("change", (event) => {
+    newProductName = productName.value;
+});
 
+
+// postData(, { "name": newProductName, "price": 10.99, "quantity": 56, "description": "Nutty and mildly acidic" });
+    // .then((data) => {
+    //     console.log(data);
