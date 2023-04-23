@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Great Coffee Co!</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="home.html">See Products</a>
+        <a href="add-products.html">Add New Product</a>
+        <a href="update-products.html">Update Existing Product</a>
+        <a href="delete-products.html">Delete Product</a>
+    </nav>
+
+    <h1>Welcome, Admin</h1>
+    <h2>Update a product</h2>
+    <p>NOTE: If any field is not given a value, that field will update to be blank.</p>
+
+    <div>
+        <form onsubmit="reset()">
+
+            <label for="product-id">Product ID</label>
+            <input type="text" name="product-id" id="product-id"><br>
+
+            <label for="product-name">Name of Product</label>
+            <input type="text" name="product-name" id="product-name"><br>
+
+            <label for="product-price">Price of Product</label>
+            <input type="text" name="product-price" id="product-price"><br>
+
+            <label for="product-quantity">Quantity of Product</label>
+            <input type="number" name="product-quantity" id="product-quantity"><br>
+
+            <label for="product-description">Description of Product</label>
+            <input type="text" name="product-description" id="product-description"><br>
+
+            <button type="submit" id="post-product" onclick="putProduct()">Update Product</button>
+        </form>
+    </div>
+
+    <script src="update.js"></script>
+</body>
+
+</html>
