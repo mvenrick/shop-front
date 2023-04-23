@@ -13,7 +13,6 @@ async function postProduct(url = "http://localhost:8080/api/products",
         },
         body: JSON.stringify(data)
     });
-    newProductCollection.push(response.json());
     return response.json();
 };
 

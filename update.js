@@ -4,9 +4,8 @@ const productPrice = document.querySelector("#product-price");
 const productQty = document.querySelector("#product-quantity");
 const productDesc = document.querySelector("#product-description");
 
-let newProductName = "";
 
-async function updateProduct(url = `http://localhost:8080/api/products/${productId}`,
+async function updateProduct(url = "http://localhost:8080/api/products/" + newProductId,
     data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
     const response = await fetch(url, {
         method: "PUT",
@@ -15,8 +14,9 @@ async function updateProduct(url = `http://localhost:8080/api/products/${product
         },
         body: JSON.stringify(data)
     });
-    return response.json();
+    console.log(response);
 };
+
 
 const getId = productId.addEventListener("change", (event) => {
     newProductId = productId.value;
