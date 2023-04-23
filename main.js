@@ -1,5 +1,4 @@
-const productButton = document.querySelector("#get-all-products");
-const productList = document.querySelector("#product-list");
+
 
 const productName = document.querySelector("#product-name");
 const productPrice = document.querySelector("#product-price");
@@ -8,23 +7,8 @@ const productDesc = document.querySelector("#product-description");
 
 let newProductName = "";
 
-function listProduct(products) {
-    for (let prod of products) {
-        let productLineItem = document.createElement("li");
-        productLineItem.innerText = prod.name;
-        productList.appendChild(productLineItem);
-    }
-
-};
-
-async function getJson() {
-    let response = await fetch("http://localhost:8080/api/products");
-    let data = await response.json();
-    listProduct(data);
-};
-
 async function postProduct(url = "http://localhost:8080/api/products",
-    data = { "name": newProductName, "price": 10.99, "quantity": 23, "description": "nice" }) {
+    data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -38,8 +22,14 @@ async function postProduct(url = "http://localhost:8080/api/products",
 const getName = productName.addEventListener("change", (event) => {
     newProductName = productName.value;
 });
+const getPrice = productName.addEventListener("change", (event) => {
+    newProductPrice = productPrice.value;
+});
+const getQuantity = productName.addEventListener("change", (event) => {
+    newProductQuantity = productQty.value;
+});
+const getDescription = productName.addEventListener("change", (event) => {
+    newProductDescription = productDesc.value;
+});
 
 
-// postData(, { "name": newProductName, "price": 10.99, "quantity": 56, "description": "Nutty and mildly acidic" });
-    // .then((data) => {
-    //     console.log(data);
