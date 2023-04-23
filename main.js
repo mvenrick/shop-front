@@ -22,13 +22,13 @@ async function postProduct(url = "http://localhost:8080/api/products",
 const getName = productName.addEventListener("change", (event) => {
     newProductName = productName.value;
 });
-const getPrice = productName.addEventListener("change", (event) => {
+const getPrice = productPrice.addEventListener("change", (event) => {
     newProductPrice = productPrice.value;
 });
-const getQuantity = productName.addEventListener("change", (event) => {
+const getQuantity = productQty.addEventListener("change", (event) => {
     newProductQuantity = productQty.value;
 });
-const getDescription = productName.addEventListener("change", (event) => {
+const getDescription = productDesc.addEventListener("change", (event) => {
     newProductDescription = productDesc.value;
 });
 
