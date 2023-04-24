@@ -5,7 +5,10 @@ const productDesc = document.querySelector("#product-description");
 
 
 async function postProduct(url = "http://localhost:8080/api/products",
-    data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
+    data = {
+        "name": newProductName, "price": newProductPrice,
+        "quantity": newProductQuantity, "description": newProductDescription
+    }) {
     const response = await fetch(url, {
         method: "POST",
         headers: {

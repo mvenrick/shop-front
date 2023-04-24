@@ -5,6 +5,7 @@ const productQty = document.querySelector("#product-quantity");
 const productDesc = document.querySelector("#product-description");
 const updateProductButton = document.querySelector("#update-product");
 
+let newProductId = null;
 let newProductName = "";
 let newProductPrice = "";
 let newProductQuantity = null;
@@ -40,33 +41,16 @@ const getDescription = productDesc.addEventListener("change", (event) => {
 });
 
 let apiUrl = "http://localhost:8080/api/products/";
-data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription };
 
-updateProductButton.addEventListener("click", (newProductId, data) => {
-    fetch(apiUrl + newProductId, {
+
+const updateProduct = updateProductButton.addEventListener("click", (data) => {
+    fetch(apiUrl + newProductId.value, {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
         method: 'PUT',
-        body: JSON.stringify({
-            data
-        })
-    }).then((response) => {
-        response.json().then((response) => {
-            console.log(response);
-        })
-    }).catch(err => {
-        console.error(err)
+        body: JSON.stringify
+            (data = {
+                "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity,
+                "description": newProductDescription
+            })
     })
 })
-// function update(newProductId, data) {
-//     fetch(apiUrl + newProductId, {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             data
-//         })
-//     }).then((response) => {
-//         response.json().then((response) => {
-//             console.log(response);
-//         })
-//     }).catch(err => {
-//         console.error(err)
-//     })
-// }
