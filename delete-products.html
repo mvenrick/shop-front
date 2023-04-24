@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Great Coffee Co!</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="home.html">See Products</a>
+        <a href="add-products.html">Add New Product</a>
+        <a href="update-products.html">Update Existing Product</a>
+        <a href="delete-products.html">Delete Product</a>
+    </nav>
+
+    <h1>Welcome, Admin</h1>
+    <h2>Delete a product</h2>
+    <p>NOTE: Once removed, there is no way to recover deleted products</p>
+
+    <div>
+        <form>
+
+            <label for="product-id">Product ID to be Deleted</label>
+            <input type="number" name="product-id" id="product-id"><br>
+
+            <button type="button" id="delete-product">Delete Product</button>
+        </form>
+    </div>
+
+    <script src="delete.js"></script>
+</body>
+
+</html>

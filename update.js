@@ -11,18 +11,6 @@ let newProductPrice = "";
 let newProductQuantity = null;
 let newProductDescription = "";
 
-// async function updateProduct(url = "http://localhost:8080/api/products/" + newProductId,
-//     data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
-//     const response = await fetch(url, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(data)
-//     });
-//     console.log(response);
-// };
-
 
 const getId = productId.addEventListener("change", (event) => {
     newProductId = productId.value;
