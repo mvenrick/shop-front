@@ -9,7 +9,7 @@ function listProduct(products) {
     for (let prod of products) {
         let productLineItem = document.createElement("li");
         productLineItem.innerText =
-            `Name: ${prod.name},\nPrice: ${prod.price},\nQuantity: ${prod.quantity},\nDescription: ${prod.description}`;
+            `Id: ${prod.id},\nName: ${prod.name},\nPrice: ${prod.price},\nQuantity: ${prod.quantity},\nDescription: ${prod.description}`;
         productList.appendChild(productLineItem);
         newProductCollection.push(prod);
     }

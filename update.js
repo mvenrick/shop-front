@@ -3,19 +3,24 @@ const productName = document.querySelector("#product-name");
 const productPrice = document.querySelector("#product-price");
 const productQty = document.querySelector("#product-quantity");
 const productDesc = document.querySelector("#product-description");
+const updateProductButton = document.querySelector("#update-product");
 
+let newProductName = "";
+let newProductPrice = "";
+let newProductQuantity = null;
+let newProductDescription = "";
 
-async function updateProduct(url = "http://localhost:8080/api/products/" + newProductId,
-    data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
-    const response = await fetch(url, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    console.log(response);
-};
+// async function updateProduct(url = "http://localhost:8080/api/products/" + newProductId,
+//     data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription }) {
+//     const response = await fetch(url, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(data)
+//     });
+//     console.log(response);
+// };
 
 
 const getId = productId.addEventListener("change", (event) => {
@@ -33,3 +38,35 @@ const getQuantity = productQty.addEventListener("change", (event) => {
 const getDescription = productDesc.addEventListener("change", (event) => {
     newProductDescription = productDesc.value;
 });
+
+let apiUrl = "http://localhost:8080/api/products/";
+data = { "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity, "description": newProductDescription };
+
+updateProductButton.addEventListener("click", (newProductId, data) => {
+    fetch(apiUrl + newProductId, {
+        method: 'PUT',
+        body: JSON.stringify({
+            data
+        })
+    }).then((response) => {
+        response.json().then((response) => {
+            console.log(response);
+        })
+    }).catch(err => {
+        console.error(err)
+    })
+})
+// function update(newProductId, data) {
+//     fetch(apiUrl + newProductId, {
+//         method: 'PUT',
+//         body: JSON.stringify({
+//             data
+//         })
+//     }).then((response) => {
+//         response.json().then((response) => {
+//             console.log(response);
+//         })
+//     }).catch(err => {
+//         console.error(err)
+//     })
+// }
