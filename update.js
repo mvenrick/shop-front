@@ -44,12 +44,12 @@ let apiUrl = "http://localhost:8080/api/products/";
 
 
 const updateProduct = updateProductButton.addEventListener("click", (data) => {
-    fetch(apiUrl + newProductId.value, {
+    fetch(apiUrl + newProductId, {
         headers: { "Content-Type": "application/json; charset=utf-8" },
         method: 'PUT',
         body: JSON.stringify
             (data = {
-                "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity,
+                "id": newProductId, "name": newProductName, "price": newProductPrice, "quantity": newProductQuantity,
                 "description": newProductDescription
             })
     })
